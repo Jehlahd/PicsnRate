@@ -12,11 +12,13 @@ angular.module('starter.controllers')
             timeout: 10000,
             enableHighAccuracy: true
         };
+
         $cordovaGeolocation.getCurrentPosition(options).then(function (position) {
             $scope.map.center.latitude = position.coords.latitude;
             $scope.map.center.longitude = position.coords.longitude;
             console.log(position);
         });
+
 
         uiGmapGoogleMapApi.then(function (maps) {
 

@@ -60,6 +60,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
                     }
                 }
             })
+            .state('app.contact', {
+                url: '/contact',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/contact.html',
+                        controller: 'ContactCtrl'
+                    }
+                }
+            })
+            .state('app.photo', {
+                url: '/photo',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/photo.html',
+                        controller: 'CameraCtrl'
+                    }
+                }
+            })
+
 
         .state('app.password', {
             url: '/profil/password/:userId',

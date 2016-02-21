@@ -21,11 +21,21 @@
                 <ion-item menu-close href="#/app/idle">
                     Accueil
                 </ion-item>
+
                 <ion-item menu-close href="#/app/profil/{{userId}}" ng-show="isAuthenticated()">
                     Mon profil
                 </ion-item>
+
                 <ion-item menu-close href="#/app/dashboard" ng-show="isAuthenticated()">
                     Dashboard
+                </ion-item>
+
+                <ion-item menu-close href="#/app/contact">
+                    Contact
+                </ion-item>
+
+                <ion-item menu-close href="#/app/photo">
+                    Photo
                 </ion-item>
 
                 <ion-item menu-close ng-click="login()" ng-hide="isAuthenticated()">
