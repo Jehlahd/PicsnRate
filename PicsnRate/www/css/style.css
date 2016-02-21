@@ -1,0 +1,19 @@
+/* Empty. Add your own CSS if you like */
+
+
+/*-------------------------------------*/
+
+
+/*Register & Login*/
+
+.help-block {
+    height: 25px;
+    color: white;
+    background-color: red;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.angular-google-map-container {
+    height: 650px;
+}

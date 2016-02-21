@@ -1,0 +1,16 @@
+{
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.1.1",
+    "angular-google-map": "*",
+    "ngCordova": "^0.1.24-alpha",
+    "lodash": "^4.5.0"
+  },
+  "dependencies": {
+    "satellizer": "~0.13.1",
+    "angular-google-map": "*",
+    "angular-google-maps": "^2.3.2",
+    "angular-simple-logger": "^0.1.7"
+  }
+}

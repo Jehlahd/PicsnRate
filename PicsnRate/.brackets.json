@@ -1,0 +1,7 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/Users/Vincent/Documents/Work/SportConnected/SportConnected/plugins/cordova-plugin-statusbar/src/browser/statusbar.js",
+        "C:/Users/Vincent/Documents/Work/SportConnected/SportConnected/gulpfile.js",
+        "C:/Users/Vincent/Documents/Work/SportConnected/SportConnected/www/js/controllers.js"
+    ]
+}
