@@ -1,8 +1,5 @@
 <ion-view view-title="Contact">
     <ion-content>
-        <button ng-click="getAllContacts()">Find Contact</button>
-        <div ng-repeat="elem in contacts ">
-            {{elem}}
-        </div>
+        <div ng-show="error !== undefined"> {{error}}</div>
     </ion-content>
 </ion-view>

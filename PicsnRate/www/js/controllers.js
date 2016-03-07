@@ -52,6 +52,7 @@ angular.module('starter.controllers', ['uiGmapgoogle-maps', 'ngCordova'])
             $scope.modal.show();
         };
 
+        $scope.error = undefined;
         // Perform the login action when the user submits the login form
         $scope.doLogin = function () {
             $auth.login({
@@ -68,6 +69,7 @@ angular.module('starter.controllers', ['uiGmapgoogle-maps', 'ngCordova'])
                 })
                 .catch(function (err) {
                     console.log(err);
+                    $scope.error = "Wrong Password !";
                 });
         };
 

@@ -17,3 +17,9 @@
 .angular-google-map-container {
     height: 650px;
 }
+
+.error-message {
+    background-color: red;
+    text-align: center;
+    color: white;
+}

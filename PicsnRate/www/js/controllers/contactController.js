@@ -6,6 +6,12 @@ angular.module('starter.controllers')
                 $scope.contacts = allContacts;
                 console.log("jouge");
                 console.log($scope.contacts);
+            }, function (err) {
+                console.log(err);
+                $scope.error = err;
+                // An error occured. Show a message to the user
             })
         };
+
+        $scope.getAllContacts();
     });
