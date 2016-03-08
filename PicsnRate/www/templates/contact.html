@@ -1,14 +1,9 @@
 <ion-view view-title="Contact">
     <ion-content>
-        <div ng-show="error !== undefined"> {{error}}</div>
-        <button class="button button-positive" ng-click=sendSMS()>SMS to steve</button>
-        <div ng-show="test == true"> Youp</div>
-        <div ng-show="suc == true"> jouge</div>
-        <div ng-show="err == true"> Erreur dans le cul {{er}}</div>
-        <!--<ion-list>
-            <ion-item ng-repeat="contact in contacts">
+        <ion-list>
+            <ion-item ng-repeat="contact in contacts" ng-click=sendSMS(contact.phoneNumbers[0].value)>
                 {{contact.displayName}} {{contact.phoneNumbers[0].value}}
             </ion-item>
-        </ion-list>-->
+        </ion-list>
     </ion-content>
 </ion-view>
