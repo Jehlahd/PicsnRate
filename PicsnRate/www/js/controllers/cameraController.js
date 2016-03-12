@@ -25,8 +25,9 @@ angular.module('starter.controllers')
                 $cordovaCamera.getPicture(options).then(function (imageData) {
                     $scope.imgURI = "data:image/jpeg;base64," + imageData;
                     $http.post(API_URL + 'photo', {
-                            picture: $scope.imgURI
-                        }).then(function (user) {
+                            photo: $scope.imgURI,
+                            votes: 0
+                        }).success(function (user) {
                             alert("picture send");
                         })
                         .error(function (err) {
@@ -39,36 +40,14 @@ angular.module('starter.controllers')
                     // An error occured. Show a message to the user
                 });
             }
-
-            $scope.testFileUpload = function () {
-                // Destination URL 
-                var url = "http://192.168.1.28:3000/photo";
-
-                //File for Upload
-                var targetPath = "";
-
-                // File name only
-                var filename = targetPath.split("/").pop();
-
-                var options = {
-                    fileKey: "file",
-                    fileName: filename,
-                    chunkedMode: false,
-                    mimeType: "image/jpg",
-                    params: {
-                        'directory': 'upload',
-                        'fileName': filename
-                    }
-                };
-
-                $cordovaFileTransfer.upload(url, targetPath, options).then(function (result) {
-                    console.log("SUCCESS: " + JSON.stringify(result.response));
-                }, function (err) {
-                    console.log("ERROR: " + JSON.stringify(err));
-                }, function (progress) {
-                    // PROGRESS HANDLING GOES HERE
-                });
-            }
         });
 
+        $http.get(API_URL + 'photo')
+            .success(function (pictures) {
+                $scope.pictures = pictures;
+                console.log(pictures.photo);
+            })
+            .error(function (err) {
+                alert("error" + err);
+            });
     });

@@ -4,5 +4,10 @@
         <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
         <div ng-show="error !== undefined"> {{error}}</div>
         <button class="button" ng-click="takePicture()">Take Picture</button>
+
+        <div ng-repeat="picture in pictures">
+            <p>Jouge</p>
+            <img ng-src="{{picture.photo}}">
+        </div>
     </ion-content>
 </ion-view>

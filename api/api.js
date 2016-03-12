@@ -65,6 +65,7 @@ app.get('/user', userController.getUser);
 app.put('/user', userController.updateUser);
 
 app.post('/photo', pictureController.postPicture);
+app.get('/photo', pictureController.getPicture);
 /*app.put('/user', function (req, res) {
     console.log("req " + req.body.user_id);
     res.send("ok");

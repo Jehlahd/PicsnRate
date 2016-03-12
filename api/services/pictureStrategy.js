@@ -1,24 +1,21 @@
 var Picture = require('../models/photos.js');
 
-exports.postPicture = function (req, res) {
-    var picture = req.body.picture;
-    /*Picture.find({}, function (err, found) {
+exports.getPicture = function (req, res) {
+    Picture.findOne({}, function (err, pictures) {
         if (err) {
             return res.send(err);
         }
-
-        if (found) {
-            console.log("found, so update: " + found);
-
-            found.pictures.push(picture);
-            found.save();
-        } else {
-            var newFactor = new Picture();
-            newFactor.push(picture);
-            console.log("create new factor");
-            newFactor.save();
+        if (!pictures) {
+            return res.send("No pictures");
         }
-    });*/
+        console.log(pictures);
+        return res.send(pictures);
+    })
+}
+
+exports.postPicture = function (req, res) {
+    var picture = req.body.picture;
+    console.log(picture);
     Picture.update({}, {
         $push: {
             pictures: picture
