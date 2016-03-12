@@ -13,6 +13,7 @@ var createSendToken = require('./services/jwt.js');
 var jobs = require('./services/jobs.js');
 var emailVerification = require('./services/emailVerification.js');
 var userController = require('./services/user.js')
+var pictureController = require('./services/pictureStrategy.js');
 
 var app = express();
 
@@ -63,6 +64,7 @@ app.get('/user', userController.getUser);
 
 app.put('/user', userController.updateUser);
 
+app.post('/photo', pictureController.postPicture);
 /*app.put('/user', function (req, res) {
     console.log("req " + req.body.user_id);
     res.send("ok");

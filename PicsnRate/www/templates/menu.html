@@ -22,7 +22,7 @@
                     <i class="icon ion-images"></i> Accueil
                 </ion-item>
 
-                <ion-item menu-close href="#/app/photo">
+                <ion-item menu-close href="#/app/photo" ng-show="isAuthenticated()">
                     <i class="icon ion-camera"></i> Photo
                 </ion-item>
 
@@ -30,7 +30,7 @@
                     <i class="icon ion-ios-location"></i> Map
                 </ion-item>
 
-                <ion-item menu-close href="#/app/contact">
+                <ion-item menu-close href="#/app/contact" ng-show="isAuthenticated()">
                     <i class="icon ion-person-add"></i> Invitation
                 </ion-item>
 
