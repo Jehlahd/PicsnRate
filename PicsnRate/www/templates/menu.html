@@ -19,30 +19,31 @@
         <ion-content>
             <ion-list>
                 <ion-item menu-close href="#/app/idle">
-                    Accueil
-                </ion-item>
-
-                <ion-item menu-close href="#/app/profil/{{userId}}" ng-show="isAuthenticated()">
-                    Mon profil
-                </ion-item>
-
-                <ion-item menu-close href="#/app/dashboard" ng-show="isAuthenticated()">
-                    Dashboard
-                </ion-item>
-
-                <ion-item menu-close href="#/app/contact">
-                    Contact
+                    <i class="icon ion-images"></i> Accueil
                 </ion-item>
 
                 <ion-item menu-close href="#/app/photo">
-                    Photo
+                    <i class="icon ion-camera"></i> Photo
+                </ion-item>
+
+                <ion-item menu-close href="#/app/dashboard" ng-show="isAuthenticated()">
+                    <i class="icon ion-ios-location"></i> Map
+                </ion-item>
+
+                <ion-item menu-close href="#/app/contact">
+                    <i class="icon ion-person-add"></i> Invitation
+                </ion-item>
+
+
+                <ion-item menu-close href="#/app/profil/{{userId}}" ng-show="isAuthenticated()">
+                    <i class="icon ion-gear-b"></i> Mon profil
                 </ion-item>
 
                 <ion-item menu-close ng-click="login()" ng-hide="isAuthenticated()">
-                    Login
+                    <i class="icon ion-ios-plus-outline"></i> Login
                 </ion-item>
                 <ion-item menu-close ng-click="logout()" ng-show="isAuthenticated()">
-                    Logout
+                    <i class="icon ion-ios-close"></i> Logout
                 </ion-item>
             </ion-list>
         </ion-content>
