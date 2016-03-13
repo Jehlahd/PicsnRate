@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-    .controller('CameraCtrl', function ($scope, $cordovaCamera, $http, API_URL) {
+    .controller('CameraCtrl', function ($scope, $cordovaCamera, $http, API_URL, $cordovaGeolocation) {
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
@@ -24,15 +24,25 @@ angular.module('starter.controllers')
 
                 $cordovaCamera.getPicture(options).then(function (imageData) {
                     $scope.imgURI = "data:image/jpeg;base64," + imageData;
-                    $http.post(API_URL + 'photo', {
-                            photo: $scope.imgURI,
-                            votes: 0
-                        }).success(function (user) {
-                            alert("picture send");
-                        })
-                        .error(function (err) {
-                            alert("error" + err);
-                        });
+
+                    var options = {
+                        timeout: 10000,
+                        enableHighAccuracy: true
+                    };
+
+                    $cordovaGeolocation.getCurrentPosition(options).then(function (position) {
+                        $http.post(API_URL + 'photo', {
+                                photo: $scope.imgURI,
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude,
+                                votes: 0
+                            }).success(function (user) {
+                                alert("picture send");
+                            })
+                            .error(function (err) {
+                                alert("error" + err);
+                            });
+                    });
 
                 }, function (err) {
                     console.log(err);
@@ -45,7 +55,7 @@ angular.module('starter.controllers')
         $http.get(API_URL + 'photo')
             .success(function (pictures) {
                 $scope.pictures = pictures;
-                console.log(pictures.photo);
+                console.log(pictures.pictures);
             })
             .error(function (err) {
                 alert("error" + err);

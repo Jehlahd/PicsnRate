@@ -35,4 +35,14 @@ angular.module('starter.controllers')
                 }
             };
         })
+
+
+        $http.get(API_URL + 'coords')
+            .success(function (coords) {
+                $scope.coords = coords.latLng;
+                console.log($scope.coords);
+            })
+            .error(function (err) {
+                alert("error" + err);
+            });
     });

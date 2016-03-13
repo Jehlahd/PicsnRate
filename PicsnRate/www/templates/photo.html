@@ -5,7 +5,7 @@
         <div ng-show="error !== undefined"> {{error}}</div>
         <button class="button" ng-click="takePicture()">Take Picture</button>
 
-        <div ng-repeat="picture in pictures">
+        <div ng-repeat="picture in pictures.pictures">
             <p>Jouge</p>
             <img ng-src="{{picture.photo}}">
         </div>

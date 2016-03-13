@@ -8,13 +8,37 @@ exports.getPicture = function (req, res) {
         if (!pictures) {
             return res.send("No pictures");
         }
-        console.log(pictures);
+        //console.log(pictures);
         return res.send(pictures);
     })
 }
 
+exports.getPictureCoords = function (req, res) {
+    Picture.findOne({}, function (err, pictures) {
+        if (err) {
+            return res.send(err);
+        }
+        if (!pictures) {
+            return res.send("No pictures");
+        }
+        //console.log(pictures);
+        var resCoords = {
+            latLng: []
+        };
+        pictures.pictures.forEach(function (coords) {
+            resCoords.latLng.push({
+                id: coords._id,
+                latitude: coords.lat,
+                longitude: coords.lng
+            });
+        })
+        return res.send(resCoords);
+    })
+}
+
+
 exports.postPicture = function (req, res) {
-    var picture = req.body.picture;
+    var picture = req.body;
     console.log(picture);
     Picture.update({}, {
         $push: {
