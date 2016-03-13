@@ -1,8 +1,10 @@
 <ion-view view-title="Photo">
-    <ion-content>
-        <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
-        <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
-        <div ng-show="error !== undefined"> {{error}}</div>
-        <button class="button" ng-click="takePicture()">Take Picture</button>
+    <ion-content scroll="false">
+        <div class="bar bar-header bar-light">
+            <h1 class="title">Prenez et partagez vos photos</h1>
+        </div>
     </ion-content>
+    <div class="bar bar-footer">
+        <button class="button button-full button-large button-positive icon ion-camera" ng-click="takePicture()"></button>
+    </div>
 </ion-view>
