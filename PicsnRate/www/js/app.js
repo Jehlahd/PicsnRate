@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'satellizer', 'uiGmapgoogle-maps', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives', 'satellizer', 'uiGmapgoogle-maps'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -39,6 +39,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/idle.html',
+                        controller: 'IdleCtrl'
                     }
                 }
             })
@@ -52,7 +53,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
                 }
             })
             .state('app.dashboard', {
-                url: '/dashboard',
+                url: '/dashboard/:id',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/dashboard.html',

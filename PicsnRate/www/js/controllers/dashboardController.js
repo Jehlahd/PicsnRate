@@ -1,48 +1,45 @@
 angular.module('starter.controllers')
-    .controller('DashboardCtrl', function ($scope, $window, $stateParams, $http, $cordovaGeolocation, uiGmapGoogleMapApi, API_URL) {
+    .controller('DashboardCtrl', function ($scope, $window, $stateParams, $http, $cordovaGeolocation, uiGmapGoogleMapApi, $stateParams, API_URL) {
 
-        $scope.map = {
-            center: {
-                latitude: 45,
-                longitude: -73
-            },
-            zoom: 15
-        };
-        var options = {
-            timeout: 10000,
-            enableHighAccuracy: true
-        };
+        $scope.$on("$ionicView.beforeEnter", function () {
 
-        $cordovaGeolocation.getCurrentPosition(options).then(function (position) {
-            $scope.map.center.latitude = position.coords.latitude;
-            $scope.map.center.longitude = position.coords.longitude;
-            console.log(position);
-        });
+            var centerOnMarkerId = function (id) {
+                $scope.coords.forEach(function (coord) {
+                    if (coord.id === id) {
+                        $scope.map.center.latitude = coord.latitude;
+                        $scope.map.center.longitude = coord.longitude;
+                    }
+                });
+            }
+            $http.get(API_URL + 'coords')
+                .success(function (coords) {
+                    $scope.coords = coords.latLng;
+                    if ($stateParams.id !== undefined) {
+                        centerOnMarkerId($stateParams.id);
+                    }
+                });
 
-
-        uiGmapGoogleMapApi.then(function (maps) {
-
-            $scope.circle = {
-                radius: (10 * 1000),
-                stroke: {
-                    color: '#4285F4',
-                    weight: 2,
-                    opacity: 0.6
+            $scope.map = {
+                center: {
+                    latitude: 43.312660199999996,
+                    longitude: -75.5741683
                 },
-                fill: {
-                    color: '#4285F4',
-                    opacity: 0.3
-                }
+                zoom: 15
             };
-        })
+            var options = {
+                timeout: 10000,
+                enableHighAccuracy: true
+            };
 
-
-        $http.get(API_URL + 'coords')
-            .success(function (coords) {
-                $scope.coords = coords.latLng;
-                console.log($scope.coords);
-            })
-            .error(function (err) {
-                alert("error" + err);
+            $cordovaGeolocation.getCurrentPosition(options).then(function (position) {
+                $scope.map.center.latitude = position.coords.latitude;
+                $scope.map.center.longitude = position.coords.longitude;
             });
+
+
+            uiGmapGoogleMapApi.then(function (maps) {
+
+            })
+
+        });
     });

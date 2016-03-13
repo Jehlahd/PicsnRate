@@ -1,11 +1,5 @@
 angular.module('starter.controllers')
     .controller('CameraCtrl', function ($scope, $cordovaCamera, $http, API_URL, $cordovaGeolocation) {
-        document.addEventListener("deviceready", onDeviceReady, false);
-
-        function onDeviceReady() {
-            // as soon as this function is called FileTransfer "should" be defined
-            console.log(FileTransfer);
-        }
 
         ionic.Platform.ready(function () {
 
@@ -52,12 +46,4 @@ angular.module('starter.controllers')
             }
         });
 
-        $http.get(API_URL + 'photo')
-            .success(function (pictures) {
-                $scope.pictures = pictures;
-                console.log(pictures.pictures);
-            })
-            .error(function (err) {
-                alert("error" + err);
-            });
     });
