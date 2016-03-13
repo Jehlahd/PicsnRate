@@ -9,7 +9,7 @@
                     <img ng-src="{{picture.photo}}">
                 </div>
                 <div class="button-bar">
-                    <button class="button ion-thumbsup button-positive"> &nbsp; Like</button>
+                    <button ng-disabled="disabled.indexOf(picture._id) !== -1" ng-click="upvote(picture._id)" class="button ion-thumbsup button-positive"> &nbsp; Like ({{picture.votes}})</button>
                     <button ng-click="locateOnMap(picture._id)" class="button ion-ios-location button-dark"> &nbsp; See on Map</button>
                 </div>
             </div>
