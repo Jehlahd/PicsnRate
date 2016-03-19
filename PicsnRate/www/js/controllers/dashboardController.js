@@ -31,7 +31,7 @@ angular.module('starter.controllers')
             $scope.map = {
                 center: {
                     latitude: 43.312660199999996,
-                    longitude: -75.5741683
+                    longitude: 5.2055210000000001
                 },
                 zoom: 15
             };
