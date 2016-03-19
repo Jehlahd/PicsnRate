@@ -31,10 +31,10 @@ angular.module('starter.controllers')
                                 lng: position.coords.longitude,
                                 votes: 0
                             }).success(function (user) {
-                                alert("picture send");
+                                console("picture send");
                             })
                             .error(function (err) {
-                                alert("error" + err);
+                                console("error" + err);
                             });
                     });
 
