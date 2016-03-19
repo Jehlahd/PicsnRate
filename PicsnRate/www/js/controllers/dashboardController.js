@@ -1,7 +1,7 @@
 angular.module('starter.controllers')
     .controller('DashboardCtrl', function ($scope, $window, $stateParams, $http, $cordovaGeolocation, uiGmapGoogleMapApi, $stateParams, API_URL) {
 
-        $scope.$on("$ionicView.beforeEnter", function () {
+        $scope.$on("$ionicView.afterEnter", function () {
 
             var centerOnMarkerId = function (id) {
                 $scope.coords.forEach(function (coord) {

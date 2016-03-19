@@ -1,12 +1,12 @@
 angular.module('starter.controllers')
     .controller('IdleCtrl', function ($scope, $state, $http, $rootScope, API_URL) {
-        $scope.$on("$ionicView.beforeEnter", function () {
+        $scope.$on("$ionicView.afterEnter", function () {
             $http.get(API_URL + 'photo')
                 .success(function (pictures) {
                     $scope.pictures = pictures;
                 })
                 .error(function (err) {
-                    alert("error" + err);
+                    console.log("error" + err);
                 });
         });
 
@@ -30,7 +30,7 @@ angular.module('starter.controllers')
                     })
                 })
                 .error(function (err) {
-                    alert("error" + err);
+                    console.log("error" + err);
                 });
         }
     });
